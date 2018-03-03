@@ -14,7 +14,7 @@
   "author": "Nabyl Bennouri <dev@citizenhealth.io> (http://www.citizenhealth.io)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/citizenhealth/react-native-huma-napi.git"
+    "url": "git+https://github.com/citizenhealth/react-native-human-api.git"
   },
   "license": ""
 
