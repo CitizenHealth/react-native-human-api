@@ -10,7 +10,7 @@
   <a href="https://www.npmjs.com/package/react-native-human-api"><img src="https://img.shields.io/npm/dt/react-native-human-api.svg?style=flat-square" alt="NPM downloads"></a>
   <a href="https://www.npmjs.com/package/react-native-human-api"><img src="https://img.shields.io/npm/v/react-native-human-api.svg?style=flat-square" alt="NPM version"></a>
   <a href="/LICENSE"><img src="https://img.shields.io/aur/license/yaourt.svg?style=flat-square" alt="License"></a>
-  <a href="https://twitter.com/citizenhealth"><img src="https://img.shields.io/twitter/follow/citizenhealth.svg?style=social&logo=twitter&label=Follow" alt="Follow on Twitter"></a>
+  <a href="https://twitter.com/citizenhealth"><img src="https://img.shields.io/twitter/follow/CitizenHealthio.svg?style=social&logo=twitter&label=Follow" alt="Follow on Twitter"></a>
 </p>
 
 ## Introduction
