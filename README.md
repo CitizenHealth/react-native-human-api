@@ -1,4 +1,5 @@
 
+
 <p align="center">
   <a href="https://humanapi.co">
     <img width="400" src="https://firebasestorage.googleapis.com/v0/b/health-score-6740b.appspot.com/o/development%2Fresources%2Fimages%2Fhumanapi.png?alt=media&token=ebf36a25-eece-43ca-8431-357656e8ad16"><br/>
@@ -41,8 +42,8 @@ The Human API SDK has been updated to the latest.
 
 #### Android
 
-1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `io.citizenhealth.humanapi.RNReactNativeHumanApiPackage;` to the imports at the top of the file
+1. Open up `android/app/src/main/java/[...]/MainApplication.java`
+  - Add ` import io.citizenhealth.humanapi.RNReactNativeHumanApiPackage;` to the imports at the top of the file
   - Add `new RNReactNativeHumanApiPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```
