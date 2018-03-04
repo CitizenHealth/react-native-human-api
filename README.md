@@ -18,7 +18,7 @@
 
 This is a React Native native module based on  [wayneholis/react-native-humanapi](https://github.com/wayneholis/react-native-humanapi) library.
 
-The Human API SDK has been updated to the latest.
+The Human API SDK has been updated to the latest build.
 
 # react-native-react-native-human-api
 
@@ -29,6 +29,15 @@ The Human API SDK has been updated to the latest.
 ### Mostly automatic installation
 
 `$ react-native link react-native-human-api`
+
+#### Android
+Even with the automatic installation there are remaining steps to finishing the Android import
+
+ 1. Add the following lines to `android/settings.gradle` :
+```
+  	include ':humanapi-sdk'  
+  	project(':humanapi-sdk').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-human-api/android/humanapi-sdk')
+```
 
 ### Manual installation
 
@@ -49,6 +58,8 @@ The Human API SDK has been updated to the latest.
   	```
   	include ':react-native-human-api'
   	project(':react-native-human-api').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-human-api/android')
+  	include ':humanapi-sdk'  
+  	project(':humanapi-sdk').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-human-api/android/humanapi-sdk')
   	```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```

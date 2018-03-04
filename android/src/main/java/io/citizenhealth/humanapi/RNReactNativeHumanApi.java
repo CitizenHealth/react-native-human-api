@@ -100,9 +100,13 @@ public class RNReactNativeHumanApi extends ReactContextBaseJavaModule implements
     return true;
   }
 
-  /** Called when result returned */
   @Override
-  public void onActivityResult(int requestCode, int resultCode, Intent data) {
+  public String getName() {
+    return "RNReactNativeHumanApi";
+  }
+
+  @Override
+  public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
     Log.d("hapi-home", "requestCode " + requestCode);
     if (requestCode != HUMANAPI_AUTH) {
       return; // incorrect code
@@ -112,7 +116,7 @@ public class RNReactNativeHumanApi extends ReactContextBaseJavaModule implements
   }
 
   @Override
-  public String getName() {
-    return "RNReactNativeHumanApi";
+  public void onNewIntent(Intent intent) {
+
   }
 }
