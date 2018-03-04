@@ -1,7 +1,6 @@
-
 {
   "name": "react-native-human-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React Native module for the Human API",
   "main": "index.js",
   "scripts": {
@@ -17,5 +16,4 @@
     "url": "git+https://github.com/citizenhealth/react-native-human-api.git"
   },
   "license": ""
-
 }
