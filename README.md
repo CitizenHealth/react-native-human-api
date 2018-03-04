@@ -1,7 +1,7 @@
 
 <p align="center">
   <a href="https://humanapi.co">
-    <img src="https://firebasestorage.googleapis.com/v0/b/health-score-6740b.appspot.com/o/development%2Fresources%2Fimages%2Fhumanapi.png?alt=media&token=ebf36a25-eece-43ca-8431-357656e8ad16"><br/>
+    <img width="400" src="https://firebasestorage.googleapis.com/v0/b/health-score-6740b.appspot.com/o/development%2Fresources%2Fimages%2Fhumanapi.png?alt=media&token=ebf36a25-eece-43ca-8431-357656e8ad16"><br/>
   </a>
   <h2 align="center">React Native Human API</h2>
 </p>
