@@ -46,8 +46,12 @@ RCT_REMAP_METHOD(onConnect, connectOptions:(NSDictionary *)options callback:(RCT
 /** Connect success handler */
 - (void)onConnectSuccess:(NSDictionary *)data
 {
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"success",@"status",data,@"public_token", nil];;
+    
     NSLog(@"Connect success! %@", data);
-    self.callback(@[data]);
+    NSLog(@"Connect response! %@", dict);
+    self.callback(@[dict]);
     
     //Notify user of success
     //Save publicToken with local user for subsequent Human Connect launches

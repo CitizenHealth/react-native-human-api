@@ -25,8 +25,8 @@ class App extends Component {
     const humanAPI = new RNHumanAPI()
     const options = {
       client_id: 'b2fd0a46e2c6244414ef4133df6672edaec378a1',
-      client_user_id: 'nabyl@wavou.com',
-      //public_token: 'bfcfa37fc10b7a7c31d3104b67605a83',
+      client_user_id: 'user@email.com',
+      //public_token: 'xxxxxxxxxxxxxxxxxxxxxxx',
       // custom auth handle without auth_url
       auth: (data) => this.sendAuth(data),
       //auth_url: 'AUTH_URL',
