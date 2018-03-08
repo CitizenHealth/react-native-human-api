@@ -17,7 +17,7 @@ typedef enum {
 NSString *HumanAPIConnectURL = @"https://connect.humanapi.co";
 
 // geometry vars
-CGFloat NavbarHeight = 54;
+CGFloat NavbarHeight = 0;
 
 
 /** Initialization of the instance */
@@ -50,8 +50,11 @@ CGFloat NavbarHeight = 54;
     [self.view addSubview:self.webView];
     
     // Popup UIWebView init
+    // Commented out by Nabyl Bennouri
+//    self.popupWebView = [[UIWebView alloc] initWithFrame:
+//                         CGRectMake(0, NavbarHeight, ScreenWidth, ScreenHeight - NavbarHeight)];
     self.popupWebView = [[UIWebView alloc] initWithFrame:
-                         CGRectMake(0, NavbarHeight, ScreenWidth, ScreenHeight - NavbarHeight)];
+                         CGRectMake(0, 0, ScreenWidth, ScreenHeight - NavbarHeight)];
     self.popupWebView.backgroundColor = [UIColor whiteColor];
     self.popupWebView.autoresizingMask = (UIViewAutoresizingFlexibleWidth |
                                           UIViewAutoresizingFlexibleHeight);
@@ -73,7 +76,8 @@ CGFloat NavbarHeight = 54;
                                     action:@selector(onClickCancel)];
     navItem.rightBarButtonItem = doneButton;
     navbar.items = @[ navItem ];
-    [self.view addSubview:navbar];
+    // Commented out by Nabyl Bennouri
+ //   [self.view addSubview:navbar];
     
     // keyboard hide handler
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:)

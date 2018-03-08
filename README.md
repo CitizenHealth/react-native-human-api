@@ -16,9 +16,9 @@
 
 ## Introduction
 
-This is a React Native native module based on  [wayneholis/react-native-humanapi](https://github.com/wayneholis/react-native-humanapi) library.
+This is a React Native native module inspired from [wayneholis/react-native-humanapi](https://github.com/wayneholis/react-native-humanapi) library.
 
-The Human API SDK has been updated to the latest build.
+The Human API SDK has been updated to the latest build. We will be constantly updating this package for our own project. 
 
 # react-native-react-native-human-api
 
@@ -109,6 +109,11 @@ connectHumanAPI  = () => {
 	humanAPI.onConnect(options)
 }
 ```
+
+## Support
+
+Please send any bug or comment to dev@citizenhealth.io
+
 ## License
 
 * See [LICENSE](/LICENSE)
