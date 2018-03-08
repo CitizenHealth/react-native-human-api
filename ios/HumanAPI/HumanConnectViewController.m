@@ -17,7 +17,10 @@ typedef enum {
 NSString *HumanAPIConnectURL = @"https://connect.humanapi.co";
 
 // geometry vars
-CGFloat NavbarHeight = 0;
+// Commented out by Nabyl Bennouri
+// CGFloat NavbarHeight = 54;
+
+ CGFloat NavbarHeight = 0;
 
 
 /** Initialization of the instance */
@@ -51,10 +54,8 @@ CGFloat NavbarHeight = 0;
     
     // Popup UIWebView init
     // Commented out by Nabyl Bennouri
-//    self.popupWebView = [[UIWebView alloc] initWithFrame:
-//                         CGRectMake(0, NavbarHeight, ScreenWidth, ScreenHeight - NavbarHeight)];
     self.popupWebView = [[UIWebView alloc] initWithFrame:
-                         CGRectMake(0, 0, ScreenWidth, ScreenHeight - NavbarHeight)];
+                         CGRectMake(0, NavbarHeight, ScreenWidth, ScreenHeight - NavbarHeight)];
     self.popupWebView.backgroundColor = [UIColor whiteColor];
     self.popupWebView.autoresizingMask = (UIViewAutoresizingFlexibleWidth |
                                           UIViewAutoresizingFlexibleHeight);
