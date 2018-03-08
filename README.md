@@ -85,15 +85,6 @@ render() {
 ```
   Then implement the call.
 ```javascript
-sendAuth  = (data) => {
-	// send for auth_url with additional info
-	console.log('auth')
-	console.log(data)
-	// data.client_id
-	// data.human_id
-	// data.session_token
-}
-
 connectHumanAPI  = () => {
 	const  humanAPI  =  new  RNHumanAPI()
 	const  options  = {
