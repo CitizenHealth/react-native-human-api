@@ -16,7 +16,7 @@
 
 ## Introduction
 
-This is a React Native native module inspired from [wayneholis/react-native-humanapi](https://github.com/wayneholis/react-native-humanapi) library.
+This is a React Native native module inspired by [wayneholis/react-native-humanapi](https://github.com/wayneholis/react-native-humanapi) library.
 
 The Human API SDK has been updated to the latest build. We will be constantly updating this package for our own project. 
 
