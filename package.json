@@ -15,5 +15,5 @@
     "type": "git",
     "url": "git+https://github.com/citizenhealth/react-native-human-api.git"
   },
-  "license": ""
+  "license": "MIT"
 }

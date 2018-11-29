@@ -1,5 +1,4 @@
 
-
 <p align="center">
   <a href="https://humanapi.co">
     <img width="400" src="https://firebasestorage.googleapis.com/v0/b/health-score-6740b.appspot.com/o/development%2Fresources%2Fimages%2Fhumanapi.png?alt=media&token=ebf36a25-eece-43ca-8431-357656e8ad16"><br/>
@@ -68,7 +67,19 @@ Even with the automatic installation there are remaining steps to finishing the 
 
 ## Usage
 
-First import the component and render a button to open it.
+### 1. Create a Human API account
+
+Go to https://developer.humanapi.co/signup and register for an account.
+
+### 2. React Native
+First install the package 
+
+```
+npm i react-native-human-api
+react-native link react-native-human-api
+```
+
+Then import the component and render a button to open it.
 ```javascript
 import RNHumanAPI from 'react-native-human-api';
 
@@ -83,21 +94,97 @@ render() {
 ...
 }
 ```
-  Then implement the call.
+
+Add your client id, secret and app key. You can get those from https://developer.humanapi.co under the settings tab in your Human API account. Also add the Human API redirect URLs.
+```javascript
+const  baseURL = 'https://connect.humanapi.co/embed?';
+const  clientID = 'xxxx'; //Add your clientId here
+const  clientSecret = 'xxx'; //Add your client secret here
+const  appKey = 'xxx'; // Add your App Key here
+const  finishURL = 'https://connect.humanapi.co/blank/hc-finish';
+const  closeURL = 'https://connect.humanapi.co/blank/hc-close';
+const authURL = 'https://xxx' // Add your backend auth endpoint
+```
+Then implement the call. Here, you need to store and retrieve the user public token to either create a user account or if the token exists, just login to the user Human API data. I am assuming in the example below that the *public_token* and the *client_user_id* are a component property. This should be part of your user account saved data. *public_token = null* if the user has not connected for the first time yet. 
 ```javascript
 connectHumanAPI  = () => {
+	const {
+		public_token,
+		client_user_id
+	}  = this.props.user;
+
 	const  humanAPI  =  new  RNHumanAPI()
-	const  options  = {
-		client_id:  '<YOUR CLIENT ID HERE>',
-		client_user_id:  'user@email.com',
-		//public_token: 'bfcfa37fc10b7a7c31d3104b67605a83',
-		// custom auth handle without auth_url
+	const  options  = (public_token) ? {
+		client_id:  clientID,
+		client_user_id:  client_user_id,
+		public_token:  public_token,
 		auth: (data) =>  this.sendAuth(data),
-		//auth_url: 'AUTH\_URL',
-		success: (data) =>  console.log(data.public_token), // callback when success with auth_url
-		cancel: () =>  console.log('cancel') // callback when cancel
+		auth_url:  authURL,
+		success: (data) => {
+			console.log(`Human API Callback: ${data}`);
+			// save publicToken in your user account
+			this._savePublicToken(data.public_token);
+		}, // callback when success with auth_url
+		cancel: () =>  
+			console.log('cancel') // callback when 	cancel
+		} : {
+		client_id:  clientID,
+		client_user_id:  client_user_id,
+		auth: (data) =>  this.sendAuth(data),
+		auth_url:  authURL,
+		success: (data) => {
+			// save publicToken
+			this._savePublicToken(data.public_token);
+		}, // callback when success with auth_url
+		cancel: () =>  
+			console.log('cancel') // callback when cancel
+		}
+		humanAPI.onConnect(options)
 	}
-	humanAPI.onConnect(options)
+}
+```
+
+## Backend server
+
+A backend endpoint is required to handle the auth redirect and handshake with the Human API server. 
+
+Here is a Google Firebase example of a simple Node.js microservice to deploy for this purpose:
+
+```javascript
+// Human API auth handler service on Google Firebase
+
+const request = require('request');
+exports.humanAPIHandshake = function(req, res, database, callback) {
+	var sessionTokenObject = req.body;
+	sessionTokenObject.clientSecret = 'xxx'; // Your Human API account client secret
+
+	request({
+		method: 'POST',
+		uri: 'https://user.humanapi.co/v1/connect/tokens',
+		json: sessionTokenObject
+	}, (err, resp, body) => {
+		if(err) {
+			console.log(`error = ${err}`);
+			callback(false);
+			return;
+		}
+
+		// This is the response from the Human API server after authentication
+		console.log("clientId ="+ body.clientId);
+		console.log("humanId = " + body.humanId);
+		console.log("accessToken = "+ body.accessToken);
+		console.log("publicToken = "+ body.publicToken);
+
+		//Send back publicToken to app
+		var responseJSON = {
+			humanId: body.humanId,
+			accessToken: body.accessToken,
+			publicToken: body.publicToken
+		};
+
+		callback(true, responseJSON);
+		return;
+    });
 }
 ```
 
