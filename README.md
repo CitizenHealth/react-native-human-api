@@ -72,14 +72,7 @@ Even with the automatic installation there are remaining steps to finishing the 
 Go to https://developer.humanapi.co/signup and register for an account.
 
 ### 2. React Native
-First install the package 
-
-```
-npm i react-native-human-api
-react-native link react-native-human-api
-```
-
-Then import the component and render a button to open it.
+First import the component and render a button to open it.
 ```javascript
 import RNHumanAPI from 'react-native-human-api';
 
