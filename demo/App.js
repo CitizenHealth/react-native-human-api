@@ -30,7 +30,8 @@ class App extends Component {
       // custom auth handle without auth_url
       auth: (data) => this.sendAuth(data),
       //auth_url: 'AUTH_URL',
-      success: (data) => console.log(data.public_token),  // callback when success with auth_url
+      auth_url: 'https://us-central1-health-score-6740b.cloudfunctions.net/humanAPITokenExchange',
+      success: (data) => console.log(`Human API Success Callback: ${data}`),  // callback when success with auth_url
       cancel: () => console.log('cancel')  // callback when cancel
     }
     humanAPI.onConnect(options)
