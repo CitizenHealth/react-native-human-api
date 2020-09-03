@@ -3,26 +3,21 @@
  * https://github.com/facebook/react-native
  */
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import RNHumanAPI from 'react-native-human-api';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity
-} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
 class App extends Component {
   sendAuth = (data) => {
     // send for auth_url with additional info
-    console.log('auth')
-    console.log(data)
+    console.log('auth');
+    console.log(data);
     // data.client_id
     // data.human_id
     // data.session_token
-  }
+  };
   connectHumanAPI = () => {
-    const humanAPI = new RNHumanAPI()
+    const humanAPI = new RNHumanAPI();
     const options = {
       client_id: 'b2fd0a46e2c6244414ef4133df6672edaec378a1',
       client_user_id: 'user@email.com',
@@ -30,18 +25,17 @@ class App extends Component {
       // custom auth handle without auth_url
       auth: (data) => this.sendAuth(data),
       //auth_url: 'AUTH_URL',
-      auth_url: 'https://us-central1-health-score-6740b.cloudfunctions.net/humanAPITokenExchange',
-      success: (data) => console.log(`Human API Success Callback: ${data}`),  // callback when success with auth_url
-      cancel: () => console.log('cancel')  // callback when cancel
-    }
-    humanAPI.onConnect(options)
-  }
+      auth_url:
+        'https://us-central1-health-score-6740b.cloudfunctions.net/humanAPITokenExchange',
+      success: (data) => console.log(`Human API Success Callback: ${data}`), // callback when success with auth_url
+      cancel: () => console.log('cancel'), // callback when cancel
+    };
+    humanAPI.onConnect(options);
+  };
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
+        <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>
           To get started, edit index.android.js
         </Text>
@@ -49,9 +43,7 @@ class App extends Component {
           Shake or press menu button for dev menu
         </Text>
         <TouchableOpacity style={styles.button} onPress={this.connectHumanAPI}>
-          <Text style={styles.instructions}>
-            Connect HumanAPI
-          </Text>
+          <Text style={styles.instructions}>Connect HumanAPI</Text>
         </TouchableOpacity>
       </View>
     );
@@ -82,4 +74,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App
+export default App;
